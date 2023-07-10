@@ -1,0 +1,57 @@
+<div class="form-container" style="color: black;">
+    <form [formGroup]="createMatchDetailForm" (ngSubmit)="onCreate()">
+        <div class="row pb-2">
+            <div class="col-sm-6">
+                <label for="matchDate"><b>Match Date <span style="color: red;">*</span></b> </label>
+                <input id="matchDate" type="date" class="form-control" formControlName="matchDate"
+                    [ngClass]="{ 'is-invalid': submitted && getFormControl.matchDate.errors }"
+                    placeholder="Enter Match Date">
+                <div *ngIf="submitted && getFormControl.matchDate.errors" class="invalid-feedback text-danger">
+                    <div *ngIf="getFormControl.matchDate.errors?.required">Match Date is required.</div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label for="amount"><b>Amount<span style="color: red;">*</span></b> </label>
+                <input id="amount" class="form-control" formControlName="amount"
+                    [ngClass]="{ 'is-invalid': submitted && getFormControl.amount.errors }" placeholder="Enter Amount">
+                <div *ngIf="submitted && getFormControl.amount.errors" class="invalid-feedback text-danger">
+                    <div *ngIf="getFormControl.email.amount?.required">Amount is required.</div>
+                </div>
+            </div>
+           
+
+        </div>
+
+        <div class="row pb-2">
+            <div class="col-sm-6">
+                <label for="payerId"><b>Payer<span style="color: red;">*</span></b> </label>
+                <ng-select [items]="users" bindLabel="name" bindValue="id" [closeOnSelect]="true"
+                placeholder="Select Payer" [multiple]="false" formControlName="payerId"
+                [ngClass]="{ 'is-invalid': submitted && getFormControl.payerId.errors }">
+            </ng-select>
+                <div *ngIf="submitted && getFormControl.payerId.errors" class="invalid-feedback text-danger">
+                    <div *ngIf="getFormControl.payerId.errors?.required">Payer is required.</div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label for="userId"><b> Users <span style="color: red;">*</span></b> </label>
+                <ng-select [items]="users" bindLabel="name" bindValue="id" [closeOnSelect]="false"
+                    placeholder="Select Users" [multiple]="true" formControlName="userId"
+                    [ngClass]="{ 'is-invalid': submitted && getFormControl.userId.errors }">
+                </ng-select>
+                <div *ngIf="submitted && getFormControl.userId.errors" class="invalid-feedback text-danger">
+                    <div *ngIf="getFormControl.userId.errors?.required">Payers are required.</div>
+                </div>
+            </div>
+        </div>
+
+      
+        <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-6 text-right">
+                <button type="submit" class="btn btn-warning">Create</button>
+            </div>
+
+        </div>
+    </form>
+</div>

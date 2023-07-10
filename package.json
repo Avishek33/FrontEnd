@@ -18,9 +18,17 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
-    "rxjs": "~7.8.0",
+    "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.12.0"
+    "zone.js": "~0.12.0",
+    "@ng-select/ng-select": "^9.1.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.7.0",
+    "jwt-decode": "^3.1.2",
+    "ngx-toastr": "^15.2.0",
+    "ag-grid-angular": "^28.2.1",
+    "ag-grid-community": "^28.2.1",
+    "bootstrap": "^5.2.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.7",

@@ -1,0 +1,56 @@
+<div class="outer">
+  <div class="container" style="padding-top:60px;" *ngIf="!isloginClicked  else login">
+    <div class="row">
+      <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+        <div class="panel-heading">
+          <h3 class="pt-3 font-weight-bold">SignUp</h3>
+        </div>
+        <div class="panel-body p-3">
+          <!-- <form  name="form" (ngSubmit)="Signup()" #f="ngForm"> -->
+          <div class="form-group pt-3">
+            <div class="input-field">
+              <span class="fa fa-user p-2"></span>
+              <input type="text" placeholder="Enter Full Name" [(ngModel)]="signUpObj.name" class="form-control sty1"
+                required>
+            </div>
+          </div>
+          <div class="form-group pt-3">
+            <div class="input-field">
+              <span class="fa fa-user p-2"></span>
+              <input type="text" placeholder="Enter Phone" [(ngModel)]="signUpObj.phone" class="form-control sty1"
+                required>
+            </div>
+            <div class="form-group pt-3">
+              <div class="input-field">
+                <span class="fa fa-user p-2"></span>
+                <input type="text" placeholder="Enter Email" [(ngModel)]="signUpObj.email" class="form-control sty1"
+                  required>
+              </div>
+            </div>
+          </div>
+          <div class="form-group pt-3">
+            <div class="input-field">
+              <span class="fa fa-user p-2"></span>
+              <input type="password" placeholder="Password here" [(ngModel)]="signUpObj.password"
+                class="form-control sty1" required>
+            </div>
+
+          </div>
+          <div class="row pt-3">
+            <div class="col-6">
+              <button type="submit" class="btn btn-primary px-4" (click)="Signup()">SignUp</button>
+            </div>
+            <div class="col-6 text-right">
+              <button type="button" class="btn btn-link px-0" (click)="goTologin()">Go to Login</button>
+            </div>
+          </div>
+          <!-- </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<ng-template #login>
+  <app-login></app-login>
+</ng-template>

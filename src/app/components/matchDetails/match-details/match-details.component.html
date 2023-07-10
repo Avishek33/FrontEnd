@@ -1,0 +1,83 @@
+<div style="align-items: stretch;">
+    <div id="content" class="col-sm-12">
+        <div class="page-wrapper">
+            <div class="page-heading">
+                <h4 class="page-header">Match Details</h4>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                  <div class="quick-filter">
+                    <input type="text" (keyup)="onQuickFilterChanged()" class="form-control"
+                           [(ngModel)]="quickSearchValue" placeholder="search..." />
+                  </div>
+                </div>
+                  <div class="col-sm-9 text-right"> 
+                        <a href="javascript:;" class="btn btn-primary"  (click)="onAddMatchDetail()"
+                           style="text-decoration: none;">
+                          New Match Detail
+                        </a>
+
+                  </div>
+
+              </div>
+              <br />
+                <div class="card">
+                    <div class="card-body p-0">
+                      <ag-grid-angular style="width: 100%;"
+                                       class="ag-theme-alpine"
+                                       [rowData]="matchDetails"
+                                       [columnDefs]="matchDetailColDef"
+                                       [domLayout]="domLayout"
+                                       [animateRows]="true"
+                                       [paginationPageSize]="15"
+                                       [enableCellTextSelection]="true"
+                                       [enableBrowserTooltips]="true"
+                                       [pagination]="true"
+                                       (rowClicked)="onRowClicked($event)"
+                                       (filterChanged)="onFilterChanged($event)"
+                                       (modelUpdated)="onModelUpdated()"
+                                       (gridReady)="onGridReady($event)">
+                      </ag-grid-angular>
+                    </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal show" id="myModal" role="dialog" *ngIf="addMatchDetailModal"
+    style="display: block; background: rgba(0, 0, 0, 0.7)">
+    <div class="modal-dialog modal-lg " style="min-width:55%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="color: black;"><b>New Match Detail</b></h4>
+                <a type="button" class="close btn-close-modal" (click)="close()"
+                    style="color:rgb(164, 9, 9); border: none;">
+                    <span aria-hidden="true" class="col-md-1">&times;</span>
+                </a>
+
+            </div>
+            <div class="modal-body">
+               <create-match-detail (callback)="callback()"></create-match-detail>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal show" id="myModal" role="dialog" *ngIf="paymentDetailModal"
+    style="display: block; background: rgba(0, 0, 0, 0.7)">
+    <div class="modal-dialog modal-lg " style="min-width:55%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="color: black;"><b>Payment Detail</b></h4>
+                <a type="button" class="close btn-close-modal" (click)="close()"
+                    style="color:rgb(164, 9, 9); border: none;">
+                    <span aria-hidden="true" class="col-md-1">&times;</span>
+                </a>
+
+            </div>
+            <div class="modal-body">
+               <payment-detail [match-detail]="updateDetails" (callback)="callback()"></payment-detail>
+            </div>
+        </div>
+    </div>
+</div>

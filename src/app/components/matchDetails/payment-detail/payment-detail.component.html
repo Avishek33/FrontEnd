@@ -1,0 +1,19 @@
+
+<div class="card">
+    <div class="card-body p-0">
+      <ag-grid-angular style="width: 100%;"
+                       class="ag-theme-alpine"
+                       [rowData]="paymentDetails"
+                       [columnDefs]="paymentDetailColDef"
+                       [domLayout]="domLayout"
+                       [animateRows]="true"
+                       [paginationPageSize]="15"
+                       [enableCellTextSelection]="true"
+                       [enableBrowserTooltips]="true"
+                       [pagination]="true"
+                       (rowClicked)="onRowClicked($event)"
+                       (filterChanged)="onFilterChanged($event)"
+                       (modelUpdated)="onModelUpdated()"
+                       (gridReady)="onGridReady($event)">
+      </ag-grid-angular>
+    </div>
